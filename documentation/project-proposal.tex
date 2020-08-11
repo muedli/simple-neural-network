@@ -1,0 +1,182 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TOP MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+
+% (1) Packages.
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[yyyymmdd]{datetime}
+\usepackage[left=2cm,
+            right=2cm,
+            top=2cm,
+            bottom=2cm,
+            headheight=18pt,
+            includehead,
+            includefoot,
+            heightrounded]{geometry}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{parskip}
+\usepackage[table,xcdraw]{xcolor}
+
+% (2) Commands.
+\AtBeginDocument{\renewcommand{\hbar}{\hslash}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\renewcommand{\dateseparator}{-}
+
+% (3) Miscellaneous.
+\graphicspath{ {../../Images/} }
+\lstset{
+  numbers = left,
+  numberstyle = \small,
+  numbersep = 8pt,
+  frame = single,
+  language = C++,
+  framexleftmargin = 16pt
+}
+\title{
+\textsc{Final Project Proposal} \\
+A Simple Artificial Neural Network Written in C++
+}
+\author{
+Liam Mulhall \\
+Instructor: Shayon Gupta \\
+TA: Alexander Curtiss \\
+Data Structures
+}
+\date{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BODY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+
+\section{General Idea}
+
+For my final project, I intend to create a simple neural network in C++. I
+don't mind if my program isn't terribly impressive, but I do want it to be
+correct and efficient. My main goal is to understand the basics of neural
+networks.
+
+\section{Design}
+
+The design of the neural network is fairly simple. We have a layer of input
+neurons, a layer of hidden neurons, and a layer of output neurons. Any given
+neuron has a weighted connection to every neuron in the next layer.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.1]{Neural-Network}
+  \caption{A Simple 3-4-2 Neural Network}
+\end{figure}
+
+The input neurons will simply hold input values. The hidden neurons will
+receive inputs, perform mathematical operations on those inputs, and then they
+may send the modified inputs to neurons in the next layer, which is the output
+layer in our case.
+
+If we want the neural network to train itself, we have to use something called
+backpropogation. In backpropogation, we compare the received output to the
+desired output, and then we adjust the weight of the connections, which are
+used in the mathematical operations that ultimately determine the output.
+
+Each layer except for the output layer will have a bias neuron. Bias neurons
+always send an output (typically \( 1 \)) to the neurons in the next layer.
+
+\section{Underlying Data Structure}
+
+The underlying data structure of our neural network will be an implicit
+weighted graph. It will be weighted because each connection has a weight
+associated with it.
+
+\section{Problem}
+
+The problem we hope to solve is the XOR problem. We hope to train our neural
+network to behave like an XOR gate.
+
+\begin{table}[h]
+  \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \multicolumn{2}{|c|}{\textbf{INPUT}} & \textbf{OUTPUT} \\ \hline
+        A & B & A XOR B \\ \hline
+        0 & 0 & 0 \\ \hline
+        0 & 1 & 1 \\ \hline
+        1 & 0 & 1 \\ \hline
+        1 & 1 & 0 \\ \hline
+    \end{tabular}
+  \caption{XOR Truth Table}
+\end{table}
+
+\section{Features}
+
+The ``Network'' class will have the following functions:
+\begin{enumerate}
+  \item
+  A constructor.
+  \item
+  \verb!networkFeedForward! --- A function that is used to generate outputs.
+  \item
+  \verb!backPropogate! --- A function that compares desired output with
+  received output and then adjusts weights accordingly.
+  \item
+  A variety of functions that print various results and statistics.
+\end{enumerate}
+
+The ``Neuron'' class will have the following functions:
+\begin{enumerate}
+  \item
+  A constructor.
+  \item
+  Getter and setter functions for the output value.
+  \item
+  \verb!neuronFeedForward! --- A function that is used to generate outputs.
+  \item
+  A variety of mathematical functions for manipulating inputs.
+\end{enumerate}
+
+\section{Self-Imposed Deadlines}
+
+This program can be broken up into three parts: (1) the ``Network'' class (2)
+the ``Neuron'' class, and (3) working out the details of training the network,
+i.e., making a training file, reading from said file, and making the output of
+the program look nice.
+
+Since I'll have time to work on this over fall break, I'll try to make the
+``Optimistic Deadlines.''
+
+\textbf{Optimistic Deadlines}
+
+\begin{enumerate}
+  \item
+  2018-11-20
+  \item
+  2018-11-24
+  \item
+  2018-11-26
+\end{enumerate}
+
+\textbf{Realistic Deadlines}
+
+\begin{enumerate}
+  \item
+  2018-11-26
+  \item
+  2018-12-02
+  \item
+  2018-11-08
+\end{enumerate}
+
+\end{document}

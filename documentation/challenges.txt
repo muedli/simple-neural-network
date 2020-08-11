@@ -1,0 +1,41 @@
++===========================================================+
+|  _____ _             _   ____            _           _    |
+| |  ___(_)_ __   __ _| | |  _ \ _ __ ___ (_) ___  ___| |_  |
+| | |_  | | '_ \ / _` | | | |_) | '__/ _ \| |/ _ \/ __| __| |
+| |  _| | | | | | (_| | | |  __/| | | (_) | |  __/ (__| |_  |
+| |_|   |_|_| |_|\__,_|_| |_|   |_|  \___// |\___|\___|\__| |
+|                                       |__/                |
++===========================================================+
+
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+| A SIMPLE ARTIFICIAL NEURAL NETWORK WRITTEN IN C++ |
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+
++--------------------------+
+| Liam Mulhall             |
+| Instructor: Shayon Gupta |
+| TA: Alexander Curtiss    |
+| Data Structures          |
+| Fall 2018                |
++--------------------------+
+
++------------+
+| Challenges |
++------------+
+
+One of the challenges was trying to decide what the functionality
+of my neural network would be. I decided to keep it simple and
+stick with trying to get the neural network to behave like an
+XOR gate.
+
+Another challenge was trying to decide what features to add and
+what features to omit. I tried my best to avoid scope creep
+(https://en.wikipedia.org/wiki/Scope_creep). I decided to add
+a Python program that makes a graph of the recent average error
+versus the training round. I think it's a cool feature.
+
+By far the most challenging aspect of this project was
+understanding why some of the algorithms work. Specifically,
+it was difficult to understand why the backpropogation algorithm
+works. It was also somewhat difficult to understand what exactly
+a transfer/activation function does and why it works.
